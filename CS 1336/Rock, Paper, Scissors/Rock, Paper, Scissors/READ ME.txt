@@ -1,0 +1,5 @@
+I have some instructions in the main.cpp file pertaining to File IO.
+You need the header file for this program to work.
+If you need more assistance contact me at:
+Daniel Eisterhold
+dte130030@utdallas.edu
