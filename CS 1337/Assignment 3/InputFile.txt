@@ -1,0 +1,11 @@
+n 1000.00, 0.045, 125.00	//New Loan $1000 principal, 4.5% Interest, $125 Monthly Payment
+mi 1, 0.46			//Modify interest on loan 1; Set to 46%
+mp 1, 75.00			//Modify payment; Set to $75
+n 2000.00, 0.03, 175.00		//New Loan $2000 principal, 3% Interest, $175 Monthly Payment
+n 10000.00, 0.023, 525.00	//New Loan $10,000 principal, 2.3% Interest, $525 Monthly Payment
+rp 1, 75.25			//Receive payment on loan 1 for $75.25
+pf 1				//Print amortization table on loan 1
+sh 1				//Show history of loan
+n 2000.00, 0.030, 78.00		//New Loan $2000 principal, 3% Interest, $78 Monthly Payment
+pf 4				//Print amortization table on loan 1
+cp 4				//Calculate Payoff of loan

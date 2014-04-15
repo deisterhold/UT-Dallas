@@ -1,0 +1,11 @@
+n 0, 2, 6, 500		//New Aircraft type with 2 engines and 6 passengers, 500lb payload
+n 0, 2, 200, 10000	//New Aircraft type with 2 engines and 200 passengers, 10,000lb payload
+n 1, 40, 6, false	//New airplane with a 40ft wingspan, 6ft diameter propeller, and not a jet
+n 2, 6, 2		//New Helicopter with 6 blades and 2 rotors
+n 3, 200, 4		//New Rocket with 200ft height, and 4 fins
+p 0			//Print all aircraft characteristics
+p 1			//Print aircraft #1 characteristics
+p 2			//Print aircraft #2 characteristics
+p 3			//Print aircraft #3 characteristics
+p 4			//Print aircraft #4 characteristics
+p 5			//Print aircraft #5 characteristics
