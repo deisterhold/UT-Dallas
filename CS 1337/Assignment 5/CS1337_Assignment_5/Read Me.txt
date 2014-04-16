@@ -1,0 +1,3 @@
+To switch between logging to a file and just logging to the console
+change the boolean variable named “logToFile” to false (logs just to console)
+or true (logs to file and console).
