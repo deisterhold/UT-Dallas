@@ -48,6 +48,8 @@ bool LoanManager::validateCommand(string commandToValidate)
     
     stringToTokens(commandToValidate, arrayOfTokens);
     
+    
+    
     //Check if the there exists a command in the string
     if (commandToValidate.length() > 0)
     {
@@ -127,42 +129,46 @@ void LoanManager::processCommand(string commandToProcess)
     
     //Convert string to tokens
     stringToTokens(commandToProcess, arrayOfTokens);
+
+    if (commandToProcess.length() > 0)
+    {
     
-    //Determine the command
-    if (*arrayOfTokens[0] == "cp")
-    {
-        cout<<"Calculating payoff..."<<endl;
-        myLoans[atoi(arrayOfTokens[1]->c_str())-1].calculatePayoff();
-    }
-    else if(*arrayOfTokens[0] == "n")
-    {
-        cout<<"Creating new loan..."<<endl;
-        createNewLoan(atof(arrayOfTokens[1]->c_str()), atof(arrayOfTokens[2]->c_str()), atof(arrayOfTokens[3]->c_str()));
-    }
-    else if(*arrayOfTokens[0] == "mi")
-    {
-        cout<<"Modifying interest rate..."<<endl;
-        myLoans[atoi(arrayOfTokens[1]->c_str())-1].setInterest(atof(arrayOfTokens[2]->c_str()));
-    }
-    else if(*arrayOfTokens[0] == "mp")
-    {
-        cout<<"Modifying payment..."<<endl;
-        myLoans[atoi(arrayOfTokens[1]->c_str())-1].setPayment(atof(arrayOfTokens[2]->c_str()));
-    }
-    else if(*arrayOfTokens[0] == "pf")
-    {
-        cout<<"Printing amortization table..."<<endl;
-        myLoans[atoi(arrayOfTokens[1]->c_str())-1].printAmortizationTable();
-    }
-    else if(*arrayOfTokens[0] == "rp")
-    {
-        cout<<"Payment received..."<<endl;
-        myLoans[atoi(arrayOfTokens[1]->c_str())-1].makePayment(atof(arrayOfTokens[2]->c_str()));
-    }
-    else if(*arrayOfTokens[0] == "sh")
-    {
-        cout<<"Showing history of loan..."<<endl;
-        myLoans[atoi(arrayOfTokens[1]->c_str())-1].showHistory();
+        //Determine the command
+        if (*arrayOfTokens[0] == "cp")
+        {
+            cout<<"Calculating payoff..."<<endl;
+            myLoans[atoi(arrayOfTokens[1]->c_str())-1].calculatePayoff();
+        }
+        else if(*arrayOfTokens[0] == "n")
+        {
+            cout<<"Creating new loan..."<<endl;
+            createNewLoan(atof(arrayOfTokens[1]->c_str()), atof(arrayOfTokens[2]->c_str()), atof(arrayOfTokens[3]->c_str()));
+        }
+        else if(*arrayOfTokens[0] == "mi")
+        {
+            cout<<"Modifying interest rate..."<<endl;
+            myLoans[atoi(arrayOfTokens[1]->c_str())-1].setInterest(atof(arrayOfTokens[2]->c_str()));
+        }
+        else if(*arrayOfTokens[0] == "mp")
+        {
+            cout<<"Modifying payment..."<<endl;
+            myLoans[atoi(arrayOfTokens[1]->c_str())-1].setPayment(atof(arrayOfTokens[2]->c_str()));
+        }
+        else if(*arrayOfTokens[0] == "pf")
+        {
+            cout<<"Printing amortization table..."<<endl;
+            myLoans[atoi(arrayOfTokens[1]->c_str())-1].printAmortizationTable();
+        }
+        else if(*arrayOfTokens[0] == "rp")
+        {
+            cout<<"Payment received..."<<endl;
+            myLoans[atoi(arrayOfTokens[1]->c_str())-1].makePayment(atof(arrayOfTokens[2]->c_str()));
+        }
+        else if(*arrayOfTokens[0] == "sh")
+        {
+            cout<<"Showing history of loan..."<<endl;
+            myLoans[atoi(arrayOfTokens[1]->c_str())-1].showHistory();
+        }
     }
 }
 

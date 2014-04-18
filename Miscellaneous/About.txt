@@ -1,0 +1,1 @@
+This programs demonstrates the use of public-private key encryption. The program uses very short encryptions keys so that it can be easily understood. The program should be easily extendable to different data types by casting the data type into single bytes then into 8 bit integers.

@@ -198,7 +198,7 @@ string readLine(ifstream &myFile)
         return command;
     }
     
-//    cout<<"Command could not be understood"<<endl;
+    cout<<"Command could not be understood"<<endl;
     
     //If not valid then return a blank string
     return "";
