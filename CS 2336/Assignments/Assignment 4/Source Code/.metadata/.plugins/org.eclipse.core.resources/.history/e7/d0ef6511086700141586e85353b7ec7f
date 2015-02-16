@@ -1,0 +1,12 @@
+//Include the Classes
+import Dallopoly.*;
+
+public class GameLauncher {
+	public static void main(String[] args) {
+		//Create a game
+		Dallopoly game = new Dallopoly();
+		
+		//Play the game
+		game.playGame();
+	}
+}

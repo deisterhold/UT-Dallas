@@ -1,0 +1,186 @@
+/*
+Copyright (c) 2014, Daniel Eisterhold
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+package Dallopoly;
+
+//Include the UI Classes
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class DallopolyWindow extends JFrame implements ActionListener {
+	//Game object
+	Dallopoly game;
+	
+	//Counter for number of players playing
+	int numberOfPlayers;
+	
+	//Main Panel
+	JPanel mainPanel;
+	
+	//Buttons
+	JButton newGameButton;
+	JButton addPlayerButton;
+	JButton playGameButton;
+	//Label
+	JLabel playerNameLabel;
+	//Text areas
+	JTextField playerNameField;
+	JTextArea gameOutput;
+	//Scroll Pane
+	JScrollPane gameOutputPane;
+	
+	public DallopolyWindow() {
+		try {
+			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		} 
+		catch (UnsupportedLookAndFeelException e) {
+			// handle exception
+			System.out.println("That look and feel is unsupported.");
+		}
+		catch (ClassNotFoundException e) {
+			// handle exception
+			System.out.println("That look and feel was not found.");
+		}
+		catch (InstantiationException e) {
+			System.out.println("Error initializing that look and feel.");
+			// handle exception
+		}
+		catch (IllegalAccessException e) {
+			System.out.println("Error accessing the look and feel.");
+			// handle exception
+		}
+		
+		//Quit the application when the window is closed
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//Set the minimum window size
+		this.setMinimumSize(new Dimension(600,400));
+		//Set the window label
+		this.setTitle("DallopolyWindow");
+		
+		//Initialize the panel
+		mainPanel = new JPanel();
+		
+		//Create the UI Elements
+		//Buttons for user to press
+		newGameButton = new JButton("New Game");
+		addPlayerButton = new JButton("Add Player");
+		playGameButton = new JButton("Play");
+		//Player Name label and input area
+		playerNameLabel = new JLabel("Player Name:", SwingConstants.RIGHT);
+		playerNameField = new JTextField();
+		//Text Output Area
+		gameOutput = new JTextArea(30,40);
+		gameOutputPane = new JScrollPane(gameOutput);
+		
+		//Set size of UIElements
+		newGameButton.setSize(40,20);
+		addPlayerButton.setSize(40,20);
+		playGameButton.setSize(40,20);
+		
+		//Disable the stuff that the user can't interact with
+		addPlayerButton.setEnabled(false);
+		playGameButton.setEnabled(false);
+		playerNameField.setEnabled(false);
+		gameOutput.setEditable(false);
+		
+		//Hard code the location of the UI Elements that don't move
+		newGameButton.setLocation(5, 5);
+		playerNameLabel.setLocation(50, 5);
+		playerNameField.setLocation(100, 5);
+		addPlayerButton.setLocation(200, 5);
+		gameOutputPane.setLocation(5, 44);
+		
+		//Add the UI Elements
+		mainPanel.add(newGameButton);
+		mainPanel.add(playerNameLabel);
+		mainPanel.add(playerNameField);
+		mainPanel.add(addPlayerButton);
+		mainPanel.add(playGameButton);
+		mainPanel.add(gameOutputPane);
+		
+		//Add ActionListener to all the buttons
+		newGameButton.addActionListener(this);
+		addPlayerButton.addActionListener(this);
+		playGameButton.addActionListener(this);
+		
+		//Add the panel to the frame
+		this.add(mainPanel);
+		
+		//Resize the components if the frame size changes
+		this.addComponentListener(new ComponentAdapter() {  
+			  public void componentResized(ComponentEvent comp) {  
+				  final int spacing = 5;
+				  
+				  newGameButton.setLocation(spacing, spacing);
+				  System.out.println(playerNameLabel.getY());
+				  System.out.println(playerNameField.getY());
+//				  playerNameLabel.setBounds(newGameButton.getX() + newGameButton.getWidth() + spacing, spacing, 85, 20);
+				  addPlayerButton.setLocation(mainPanel.getWidth()-(addPlayerButton.getWidth()+spacing), spacing);
+//				  playerNameField.setBounds(playerNameLabel.getX() + playerNameLabel.getWidth() + spacing, spacing+3, (addPlayerButton.getX()-spacing)-(playerNameLabel.getX()+playerNameLabel.getWidth() + spacing), 20);
+				  gameOutputPane.setBounds(spacing, 39+spacing, mainPanel.getWidth()-(playGameButton.getWidth()+(2*spacing)), mainPanel.getHeight()-(39+(2*spacing)));
+				  playGameButton.setLocation(mainPanel.getWidth()-(playGameButton.getWidth()+spacing), ((mainPanel.getHeight()-(39+spacing))/2 + (39+(spacing/2))));
+			  }  
+			});
+	}
+	
+	
+	
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource() == newGameButton) {
+			//Create a new game
+			game = new Dallopoly();
+			//Reset the number of players
+			numberOfPlayers = 0;
+			//Disable the new game button and enable the add player functionality
+			newGameButton.setEnabled(false);
+			addPlayerButton.setEnabled(true);
+			playerNameField.setEnabled(true);
+			//Output that a new game has started
+			gameOutput.setText("NEW GAME\n");
+		}
+		else if(e.getSource() == addPlayerButton) {
+			//If the players name field is empty do not add it
+//			if(playerNameField.getText().length() == 0) return;
+			
+			//Increase player count
+			numberOfPlayers++;
+			//Add player to the board
+			game.addPlayer(playerNameField.getText());
+			//Output that a player was added
+			gameOutput.append("Added Player: " + playerNameField.getText() + "\n");
+			//Clear the text field
+			playerNameField.setText("");
+			
+			//If there are at least two players allow the game to start
+			if(numberOfPlayers >= 2) {
+				playGameButton.setEnabled(true);
+			}
+		}
+		else if(e.getSource() == playGameButton) {
+			//Disable the remaining buttons/text fields
+			addPlayerButton.setEnabled(false);
+			playerNameField.setEnabled(false);
+			playGameButton.setEnabled(false);
+			
+			//Play the game and output what happened
+			gameOutput.append(game.playGame() + "\n");
+			
+			//Re-enable the New Game Button
+			newGameButton.setEnabled(true);
+			//Reset the game
+			numberOfPlayers = 0;
+			game = null;
+		}
+	}
+}

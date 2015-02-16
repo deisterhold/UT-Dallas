@@ -1,0 +1,41 @@
+package Dallopoly;
+
+public class Board {
+	private Square[] squares;
+	
+	public Board() {
+		//Make the array big enough to hold all of the game squares
+		squares = new Square[17];
+		
+		//Initialize each of the squares
+		squares[0] = new Square("Reunion Tower");
+		squares[1] = new Square("Dealey Plaza");
+		squares[2] = new Square("Design District");
+		squares[3] = new Square("Victory Park");
+		squares[4] = new Square("West End");
+		squares[5] = new Square("Perot Museum");
+		squares[6] = new Square("Downtown");
+		squares[7] = new Square("Klyde Warren Park");
+		squares[8] = new Square("Arts District");
+		squares[9] = new Square("Deep Ellum");
+		squares[10] = new Square("Fair Park");
+		squares[11] = new Square("West Village");
+		squares[12] = new Square("Katy Trail");
+		squares[13] = new Square("North Park Mall");
+		squares[14] = new Square("White Rock Lake");
+		squares[15] = new Square("Bush Library");
+		squares[16] = new Square("SMU");
+	}
+	
+	public Square getStartSquare() {
+		return new Square("");
+	}
+	
+	public Square getLastSquare() {
+		return new Square("");
+	}
+	
+	public Square move(Square newSquare, int move) {
+		return new Square("");
+	}
+}

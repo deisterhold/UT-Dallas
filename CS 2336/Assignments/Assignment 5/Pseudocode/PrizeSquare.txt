@@ -1,0 +1,16 @@
+PrizeSquare Class
+
+	create constructor that takes the name of the square
+		set the label to be the name of the square by calling the parents constructor
+
+	create behavior to setLabel that takes the new name
+		set the label to be the new name
+
+	create behavior to getLabel that returns the name of the square
+		return the value of the variable label
+
+	create behavior that accepts a player as an argument
+		add $100 to the players balance
+
+	create behavior toString that returns details about the square
+		return the name of the square

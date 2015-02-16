@@ -1,0 +1,30 @@
+Pancakes Class
+
+	create var originalRadius
+	create var originalQuantity
+	create var originalArea
+	create var newRadius
+	create var newQuantity
+	create var newArea
+
+	create constructor
+		set originalRadius to 0
+		set originalQuantity to 0
+		set originalArea to 0
+		set newRadius to 0
+		set newQuantity to 0
+		set newArea to 0
+
+	create behavior to calculate area
+		set volume to 3.14 * originalRadius * originalRadius * pancakeHeight
+		set newQuantity to volume / (3.14 * newRadius * newRadius * pancakeHeight)
+		pass area
+
+	create behavior to calculate number of pancakes
+		pass area1 divided by area2
+
+	create behavior to get input
+		get user input
+		validate user input
+		repeat until user input is valid
+		pass input

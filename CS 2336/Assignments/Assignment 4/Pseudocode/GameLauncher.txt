@@ -1,0 +1,7 @@
+GameLauncher Class
+
+include the package containing the Dallopoly game
+
+	create main method
+		create a Dallopoly object
+		call the play method on the Dallopoly object

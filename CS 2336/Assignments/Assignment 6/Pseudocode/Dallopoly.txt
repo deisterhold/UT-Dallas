@@ -1,0 +1,33 @@
+Dallopoly Class
+
+	include the ArrayList Class
+
+	create variable to hold theSpinner
+	create variable to hold theBoard
+	create variable to hold the players
+	create variable to hold output
+
+	create constructor
+		initialize theBoard variable
+		initialize theSpinner variable
+		initialize the players variable
+
+	create playGame behavior
+		create flag gameOver to know when the game is over
+
+		loop until the game is over using the flag to know
+			loop through all the players
+				have the current player take a turn 
+				add what happened to the output variable
+				if the player has landed on the last square
+					set gameOver to true
+					find the player with the most money
+					return string with who won the game
+					add string to output variable
+					exit loop
+
+	create addPlayer behavior that takes a string
+		add the player to the array of players
+		set the new players money amount to $100
+		return string saying a new player has been created
+				

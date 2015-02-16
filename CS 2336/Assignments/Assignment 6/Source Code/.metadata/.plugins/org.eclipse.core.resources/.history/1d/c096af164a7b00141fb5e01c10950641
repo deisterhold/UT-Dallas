@@ -1,0 +1,10 @@
+import CalcWindow;
+
+public class CalcTester {
+	public static void main(String[] args) {
+		CalcWindow window = new CalcWindow();
+		window.setVisible(true);
+		window.setSize(250,150);
+		window
+	}
+}

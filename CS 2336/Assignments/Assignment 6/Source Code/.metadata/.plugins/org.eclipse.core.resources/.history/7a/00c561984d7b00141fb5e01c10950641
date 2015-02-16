@@ -1,0 +1,90 @@
+package Calculator;
+
+import java.awt.*;
+import java.awt.event.*;
+
+import javax.swing.*;
+
+public class CalcWindow extends JFrame implements ActionListener{
+	JLabel num1Label, num2Label;
+	JTextField num1Field, num2Field;
+	JPanel northPanel, centerPanel, southPanel;
+	
+	JLabel resLabel, outLabel;
+	JButton addButton, subButton, multButton, divButton;
+
+	public CalcWindow() {
+		num1Label = new JLabel("Number 1");
+		num2Label = new JLabel("Number 2");
+		
+		num1Field = new JTextField(20);
+		num2Field = new JTextField(20);
+		
+		northPanel = new JPanel();
+		northPanel.setLayout(new GridLayout(2,2));
+		northPanel.add(num1Label);
+		northPanel.add(num1Field);
+		northPanel.add(num2Label);
+		northPanel.add(num2Field);
+		this.add(northPanel, BorderLayout.NORTH);
+		
+		addButton = new JButton("Add");
+		subButton = new JButton("Subtract");
+		multButton = new JButton("Multiply");
+		divButton = new JButton("Divide");
+		
+		centerPanel = new JPanel();
+		centerPanel.add(addButton);
+		centerPanel.add(subButton);
+		centerPanel.add(multButton);
+		centerPanel.add(divButton);
+		this.add(centerPanel, BorderLayout.CENTER);
+		
+		resLabel = new JLabel("Result: ");
+		outLabel = new JLabel();
+		
+		southPanel = new JPanel();
+		southPanel.add(resLabel);
+		southPanel.add(outLabel);
+		this.add(southPanel, BorderLayout.SOUTH);
+		
+		addButton.addActionListener(this);
+		subButton.addActionListener(this);
+		divButton.addActionListener(this);
+		multButton.addActionListener(this);
+
+	public void actionPerformed(ActionEvent e) {
+		double num1, num2;
+		Double sum;
+		num1 = Double.parseDouble(num1Field.getText());
+		num2 = Double.parseDouble(num2Field.getText());
+		
+		if(e.getSource() == addButton) {
+			sum = num1 + num2;
+			outLabel.setText(sum.toString());
+		}
+		else if(e.getSource() == subButton) {
+			sum = num1 - num2;
+			outLabel.setText(sum.toString());
+		}
+		else if(e.getSource() == multButton) {
+			sum = num1 * num2;
+			outLabel.setText(sum.toString());
+		}
+		else if(e.getSource() == divButton) {
+			if(num2 != 0) {
+				sum = num1 / num2;
+				outLabel.setText(sum.toString());
+			}
+			outLabel.setText("Division by Zero");
+		}
+	}
+		
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+}

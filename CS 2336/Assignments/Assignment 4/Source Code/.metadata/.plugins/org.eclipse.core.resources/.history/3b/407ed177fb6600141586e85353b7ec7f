@@ -1,0 +1,7 @@
+package Dallopoly;
+
+public class Player {
+	public Player() {
+		
+	}
+}

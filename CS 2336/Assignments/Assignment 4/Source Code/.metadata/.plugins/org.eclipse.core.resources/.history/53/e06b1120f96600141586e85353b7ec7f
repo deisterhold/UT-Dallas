@@ -1,0 +1,11 @@
+//Include the Classes
+import Dallopoly.SimpleMonopoly;
+// or
+//import Monopoly.*;
+
+public class GameLauncher {
+	public static void main(String[] args) {
+		SimpleMonopoly sm = new SimpleMonopoly();
+		sm.playGame();
+	}//end main
+}//end class GameTester

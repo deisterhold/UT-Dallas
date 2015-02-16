@@ -1,0 +1,41 @@
+package Dallopoly;
+
+import java.util.ArrayList;
+
+public class Dallopoly {
+	//Variables to hold data about a spinner, a board
+	private Spinner theSpinner;
+	private Board theBoard;
+	private
+	
+	public Dallopoly() {
+		this.setCurrentSquare(0);
+	}
+	
+	public void setCurrentSquare(int newSquareNumber) {
+		//Make sure that the new position is within the valid range
+		newSquareNumber %= this.squares.length;
+		
+		//Set new position
+		this.currentSquareNumber = newSquareNumber;
+	}
+	
+	public int getCurrentSquare() {
+		//Return position of the square
+		return this.currentSquareNumber;
+	}
+	
+	public void playGame() {
+    //set a flag that will change when the game ends
+    boolean gameOver = false;
+    
+    //Create an outer loop that exits when a player wins
+    while(gameOver == false) {
+    	//Loop through the ArrayList of players and
+    	//send each player the "takeTurn" message.
+    	//After the player has moved, compare the player’s new square //to the Board’s lastSquare. If the player is on the Board’s
+    	//last square, declare that player the winner and exit the //while loop.
+    	//INSERT MISSING CODE HERE
+    	}//end while
+    }//end playGame
+}

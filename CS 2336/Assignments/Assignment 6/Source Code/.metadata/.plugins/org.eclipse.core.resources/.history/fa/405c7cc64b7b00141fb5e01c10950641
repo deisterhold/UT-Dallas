@@ -1,0 +1,13 @@
+import Calculator.CalcWindow;
+
+import java.awt.*;
+import javax.swing.*;
+
+public class CalcTester {
+	public static void main(String[] args) {
+		CalcWindow window = new CalcWindow();
+		window.setVisible(true);
+		window.setSize(400,160);
+		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+}

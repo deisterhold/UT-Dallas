@@ -1,0 +1,29 @@
+NumberPattern Class
+
+create class
+	
+	create var num1
+	create var num2
+	create var total
+	create var maxValue
+
+	create constructor that takes a number
+		set maxValue to the number
+		set num1 to 5
+		set num2 to 7
+		set total = 0
+	
+	create a behavior
+		
+		print out num1
+		print space
+		print out num2
+		print space
+		
+		loop until total is greater than maxValue
+			if total is not equal to 0
+				print out total
+				print space
+			set total to num1 plus num2
+			set num1 to num2
+			set num2 to total

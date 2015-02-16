@@ -1,0 +1,34 @@
+//Make a Monopoly Package to group classes together
+package Monopoly;
+
+//Class declaration
+public class Square {
+	//Create a variable to hold the name of the square
+	private String label;
+	
+	//Default constructor
+	public Square() {
+		//Initialize the label variable
+		this.label = new String();
+	}
+	
+	//Constructor with option to set the name of the square
+	public Square(String newLabel) {
+		//Call the default constructor
+		this();
+		//Pass name to the method to set the name
+		this.setLabel(newLabel);
+	}
+	
+	public void setLabel(String newLabel) {
+		this.label = newLabel;
+	}
+	
+	public String getLabel() {
+		return this.label;
+	}
+	
+	public String toString() {
+		return new String("Square named: " + this.label);
+	}
+}

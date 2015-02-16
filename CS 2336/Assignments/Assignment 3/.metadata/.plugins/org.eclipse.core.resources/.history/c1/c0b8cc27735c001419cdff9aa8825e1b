@@ -1,0 +1,17 @@
+package Monopoly;
+
+import java.util.Random;
+
+public class Spinner {
+	
+	private Random randGen;
+	private int[] values = {1,2,3,5,6,7,9,12};
+	
+	public Spinner() {
+		randGen.setSeed(System.currentTimeMillis());
+	}
+	
+	public int spin() {
+		return 0;
+	}
+}

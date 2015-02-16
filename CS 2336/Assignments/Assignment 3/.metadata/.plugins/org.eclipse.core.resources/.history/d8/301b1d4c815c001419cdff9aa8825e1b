@@ -1,0 +1,21 @@
+package Monopoly;
+
+public class Square {
+	private String label;
+	
+	public Square(String newLabel) {
+		this.setLabel(newLabel);
+	}
+	
+	public void setLabel(String newLabel) {
+		this.label = newLabel;
+	}
+	
+	public String getLabel() {
+		return this.label;
+	}
+	
+	public String toString() {
+		return new String("Square named: " + this.label);
+	}
+}

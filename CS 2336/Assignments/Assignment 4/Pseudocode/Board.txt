@@ -1,0 +1,20 @@
+Board Class
+
+	import the ArrayList Class
+
+	declare variable to hold the squares called "squares"
+
+	create Constructor
+		initialize the ArrayList
+		initialize 17 squares with their name and add to the array list
+
+	create getStartSquare behavior that returns the first element in the ArrayList
+
+	create getLastSquare behavior that returns the last element in the ArrayList
+
+	create move behavior that accepts the oldSquare and squaresToMove
+		find the number of the oldSquare
+		if the square that is "squaresToMove" exists
+			return the new spot if it exists
+		else
+			return the oldSquare

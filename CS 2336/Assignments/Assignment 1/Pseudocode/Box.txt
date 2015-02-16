@@ -1,0 +1,16 @@
+Box Class
+
+	create var boxSize
+
+	create constructor
+		set boxSize to 0
+
+	create behavior to print box
+		print top line of box
+		print edges of box
+		print bottom line of box
+
+	create behavior to get size
+		read user input
+		validate input
+		repeat until input is valid

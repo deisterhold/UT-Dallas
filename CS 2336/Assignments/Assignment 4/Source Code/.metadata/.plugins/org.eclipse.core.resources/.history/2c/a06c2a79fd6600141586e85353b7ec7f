@@ -1,0 +1,15 @@
+package Dallopoly;
+
+public class Board {
+	public Board() {
+		
+	}
+	
+	public Square getStartSquare() {
+		return new Square("");
+	}
+	
+	public Square getLastSquare() {
+		return new Square("");
+	}
+}

@@ -1,0 +1,17 @@
+package Calculator;
+
+import javax.swing.*;
+
+public class CalcWindow extends JFrame {
+	JLabel num1Label, num2Label;
+	JTextField num1Field, num2Field;
+	JPanel northPanel;
+	
+	public CalcWindow() {
+		num1Label = new JLabel("Number 1");
+		num2Label = new JLabel("Number 2");
+		
+		num1Field = new JTextField(20);
+		num2Field = new JTextField(20);
+	}
+}

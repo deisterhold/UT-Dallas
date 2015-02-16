@@ -1,0 +1,56 @@
+package Dallopoly;
+
+public class Player {
+	//Variables to hold name of player and the spot that the player is at
+	private String name;
+	private Square currentSquare;
+	
+	//Constructor that accepts name and starting square
+	public Player(String _name, Square _square) {
+		//Initialize the variables
+		this.setName(_name);
+		this.setCurrentSquare(_square);
+		System.out.println(this.toString());
+	}
+	
+	//Returns player name
+	public String getName() {
+		return this.name;
+	}
+	
+	//Sets the players name
+	public void setName(String _name) {
+		this.name = _name;
+	}
+
+	//Returns square player is currently on
+	public Square getCurrentSquare() {
+		return this.currentSquare;
+	}
+	
+	//Sets the square the player is on
+	public void setCurrentSquare(Square _currentSquare) {
+		this.currentSquare = _currentSquare;
+	}
+	
+	//Player spins then moves to that spot if it exists
+	public void takeTurn(Spinner theSpinner, Board gameBoard) {
+		//Spin the spinner to get the number of spots to move
+		int spotsToMove = theSpinner.spin();
+		//Get the new square that the player is at after move a number of spots
+		Square newSquare = gameBoard.move(this.getCurrentSquare(), spotsToMove);
+		
+		//Sets the players square to the new spot
+		this.setCurrentSquare(newSquare);
+		
+		//Output what the player spun and new position
+		System.out.println(this.getName() + " spun " + spotsToMove + " " + this.toString());
+	}
+	
+	//Returns info about the player
+	public String toString() {
+		//Creates string containing the name of the player and the spot they are at
+		String data = this.getName() + " is on " + this.getCurrentSquare().toString();
+		return data;
+	}
+}

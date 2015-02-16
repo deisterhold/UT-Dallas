@@ -1,0 +1,39 @@
+package Dallopoly;
+
+public class Board {
+	private Square[] squares;
+	
+	public Board() {
+		squares = new Square[17];
+		
+		squares[0] = new Square("");
+		squares[0] = new Square("");
+		squares[0] = new Square("");
+		squares[0] = new Square("");
+		squares[0] = new Square("");
+		squares[0] = new Square("");
+		squares[0] = new Square("");
+		squares[0] = new Square("");
+		squares[0] = new Square("");
+		squares[0] = new Square("");
+		squares[0] = new Square("");
+		squares[0] = new Square("");
+		squares[0] = new Square("");
+		squares[0] = new Square("");
+		squares[0] = new Square("");
+		squares[0] = new Square("");
+		squares[0] = new Square("");
+	}
+	
+	public Square getStartSquare() {
+		return new Square("");
+	}
+	
+	public Square getLastSquare() {
+		return new Square("");
+	}
+	
+	public Square move(Square newSquare, int move) {
+		return new Square("");
+	}
+}

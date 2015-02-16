@@ -1,0 +1,19 @@
+package Monopoly;
+
+import java.util.Random;
+
+public class Spinner {
+	
+	private Random randGen;
+	private int[] values = {1,2,3,5,6,7,9,12};
+	
+	public Spinner() {
+		System.out.print(System.currentTimeMillis());
+		this.randGen.setSeed(1);
+	}
+	
+	public int spin() {
+		int randomNumber = this.randGen.nextInt(this.values.length);
+		return this.values[randomNumber];
+	}
+}

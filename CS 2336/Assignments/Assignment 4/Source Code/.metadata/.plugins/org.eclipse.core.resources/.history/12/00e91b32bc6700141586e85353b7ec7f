@@ -1,0 +1,29 @@
+//Make a Monopoly Package to group classes together
+package Dallopoly;
+
+//Import random number generator class
+import java.util.Random;
+
+//Class declaration
+public class Spinner {
+	
+	//Create a random number generator
+	private Random randGen;
+	//Create array of the possible values to return
+	private int[] values = {1,2,3,4,5,-1,-2,-3};
+	
+	//Default constructor
+	public Spinner() {
+		//Initialize random number generator
+		this.randGen = new Random();
+		//Set the seed of the random number generator as the current time in milliseconds
+		this.randGen.setSeed(System.currentTimeMillis());
+	}
+	
+	public int spin() {
+		//Create variable and store in it a random number between 0 (inclusive) and the length of the array (exclusive)
+		int randomNumber = this.randGen.nextInt(this.values.length);
+		//Return a random value in the array using the variable created above
+		return this.values[randomNumber];
+	}
+}

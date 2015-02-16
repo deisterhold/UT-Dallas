@@ -1,0 +1,25 @@
+package Monopoly;
+
+public class SimpleMonopoly {
+	
+	private int currentSquareNumber;
+	private Square[] squares;
+	private Spinner theSpinner;
+	
+	public SimpleMonopoly() {
+		squares = new Square[16];
+		this.theSpinner = new Spinner();
+	}
+	
+	public void setCurrentSquare(Square newSquare) {
+		this.squares[this.currentSquareNumber-1] = newSquare;
+	}
+	
+	public int getCurrentSquare() {
+		return this.currentSquareNumber;
+	}
+	
+	public void playGame() {
+		System.out.println(this.theSpinner.spin());
+	}
+}

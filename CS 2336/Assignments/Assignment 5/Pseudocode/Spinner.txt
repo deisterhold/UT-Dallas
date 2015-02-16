@@ -1,0 +1,17 @@
+Spinner Class
+
+	import Random num generator class
+	
+	create variable to hold the random number generator
+	create variable to hold the different values that you can spin
+
+	create default constuctor
+		initialize the random number generator
+
+		set the seed of the random number generator
+
+	create behavior spin that returns a number
+		get a random number from the random number generator
+		that is less than the number of possible values
+
+		return one of the possible values that you can spin

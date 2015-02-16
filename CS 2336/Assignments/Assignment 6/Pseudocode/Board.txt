@@ -1,0 +1,28 @@
+Board Class
+
+	import the ArrayList Class
+
+	declare variable to hold the squares called "squares"
+
+	create Constructor
+		initialize the ArrayList
+		call a function to read the input file and create the squares
+
+	create getStartSquare behavior that returns the first element in the ArrayList
+
+	create getLastSquare behavior that returns the last element in the ArrayList
+
+	create move behavior that accepts the oldSquare and squaresToMove
+		find the number of the oldSquare
+		if the square that is "squaresToMove" exists
+			return the new spot if it exists
+		else
+			return the oldSquare
+
+	create readFile behavior that reads an input file
+		open the file
+			while there is information that hasn't been read
+				read information
+				if the information is valid
+					create the appropriate square with the correct name
+		close the file

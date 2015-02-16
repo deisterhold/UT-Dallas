@@ -1,0 +1,46 @@
+package Dallopoly;
+
+import java.util.ArrayList;
+
+public class Board {
+	private ArrayList<Square> squares;
+	
+	public Board() {
+		//Initialize each of the squares
+		squares.add(new Square("Reunion Tower"));
+		squares.add(new Square("Dealey Plaza"));
+		squares.add(new Square("Design District"));
+		squares.add(new Square("Victory Park"));
+		squares.add(new Square("West End"));
+		squares.add(new Square("Perot Museum"));
+		squares.add(new Square("Downtown"));
+		squares.add(new Square("Klyde Warren Park"));
+		squares.add(new Square("Arts District"));
+		squares.add(new Square("Deep Ellum"));
+		squares.add(new Square("Fair Park"));
+		squares.add(new Square("West Village"));
+		squares.add(new Square("Katy Trail"));
+		squares.add(new Square("North Park Mall"));
+		squares.add(new Square("White Rock Lake"));
+		squares.add(new Square("Bush Library"));
+		squares.add(new Square("SMU"));
+	}
+	
+	public Square getStartSquare() {
+		return squares.get(0);
+	}
+	
+	public Square getLastSquare() {
+		return squares.get(squares.size()-1);
+	}
+	
+	public Square move(Square oldSquare, int move) {
+		try {
+			
+		}
+		catch(Exception e) {
+			
+		}
+		return new Square("");
+	}
+}

@@ -1,0 +1,38 @@
+//Make a Monopoly Package to group classes together
+package Dallopoly;
+
+//Class declaration
+public class Square {
+	//Create a variable to hold the name of the square
+	private String label;
+	
+	//Constructor
+	private Square() {
+		//Initialize the label variable
+		this.label = new String();
+	}
+	
+	//Constructor with option to set the name of the square
+	public Square(String newLabel) {
+		//Call the default constructor
+		this();
+		//Pass name to the method to set the name
+		this.setLabel(newLabel);
+	}
+	
+	public void setLabel(String newLabel) {
+		//Set the passed in string to be the name of the square
+		this.label = newLabel;
+	}
+	
+	public String getLabel() {
+		//Return the name of the square
+		return this.label;
+	}
+	
+	//Override 'toString()' method from Object
+	public String toString() {
+		//Return details about the object
+		return new String(this.getLabel() + " square");
+	}
+}

@@ -1,0 +1,7 @@
+GameTester Class
+
+include the package containing the game
+
+	create main method
+		create a variable that holds a SimpleMonopoly Game
+		tell the game to play

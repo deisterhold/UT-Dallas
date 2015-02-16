@@ -1,0 +1,26 @@
+package Monopoly;
+
+import java.util.Random;
+
+public class Spinner {
+	
+	//Create a random number generator
+	private Random randGen;
+	//Create array of the possible values to return
+	private int[] values = {1,2,3,5,6,7,9,12};
+	
+	//Default constructor
+	public Spinner() {
+		//Initialize random number generator
+		this.randGen = new Random();
+		//Set the seed of the random number generator as the current time in milliseconds
+		this.randGen.setSeed(System.currentTimeMillis());
+	}
+	
+	public int spin() {
+		//Create variable and store in it a random number between 0 (inclusive) and the length of the array (exclusive)
+		int randomNumber = this.randGen.nextInt(this.values.length);
+		//Return a random value in the array using the variable created above
+		return this.values[randomNumber];
+	}
+}

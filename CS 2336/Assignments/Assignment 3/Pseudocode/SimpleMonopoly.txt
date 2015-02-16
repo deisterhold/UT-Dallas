@@ -1,0 +1,24 @@
+SimpleMonopoly Class
+
+	create a variable to hold the current position of the iron
+	create a variable to hold all of the landing positions
+	create a variable to hold a spinner
+
+	create default constructor
+		initialize the variable that is holding the landing positions (squares)
+		add all of the different landing positions to the variable
+		set the current position to the first position
+
+	create behavior setCurrentSquare that takes the new position
+		verify that the new position is within the valid range
+		store the new position in the variable
+
+	create behavior getCurrentSquare
+		return the current position
+
+	create behavior playGame
+		tell the user where the iron is starting
+		loop 10 times
+			spin the spinner
+			advance the iron the number of positions that was spun
+			print out the number spun and the new position of the iron

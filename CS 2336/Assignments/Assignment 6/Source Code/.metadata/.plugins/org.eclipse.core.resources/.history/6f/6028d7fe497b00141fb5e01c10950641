@@ -1,0 +1,8 @@
+import javax.swing.*;
+
+public class CalcWindow extends JFrame {
+
+	public CalcWindow() {
+		
+	}
+}

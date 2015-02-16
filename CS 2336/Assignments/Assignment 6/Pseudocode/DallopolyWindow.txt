@@ -1,0 +1,18 @@
+DallopolyWindow Class
+
+	create variable of the three buttons
+	create two text input fields
+	create a label
+
+	create constructor
+		initialize all the variables
+		add the buttons, input fields, and label onto the window
+		layout the positions of the UI elements
+		add listener to know if a button is pressed
+
+	create behavior to handle button presses
+		determine what button was pressed
+			based on what button was pressed either
+			create a new game
+			add a player to the game
+			or play the game

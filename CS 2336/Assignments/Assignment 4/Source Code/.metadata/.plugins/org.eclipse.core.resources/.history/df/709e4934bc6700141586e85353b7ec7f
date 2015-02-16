@@ -1,0 +1,15 @@
+//Include the Classes
+import Dallopoly.*;
+
+public class GameLauncher {
+	public static void main(String[] args) {
+		//Output that the game is starting
+		System.out.println("Starting the game...\n");
+		
+		//Create a game
+		Dallopoly game = new Dallopoly();
+		
+		//Play the game
+		game.playGame();
+	}
+}

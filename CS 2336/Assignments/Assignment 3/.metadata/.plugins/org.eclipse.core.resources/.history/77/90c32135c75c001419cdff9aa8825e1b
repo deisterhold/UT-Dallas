@@ -1,0 +1,55 @@
+package Monopoly;
+
+public class SimpleMonopoly {
+	
+	private int currentSquareNumber;
+	private Square[] squares;
+	private Spinner theSpinner;
+	
+	public SimpleMonopoly() {
+		this.squares = new Square[16];
+		this.squares[0] = new Square("White (GO)");
+		this.squares[1] = new Square("Red");
+		this.squares[2] = new Square("Blue");
+		this.squares[3] = new Square("Green");
+		this.squares[4] = new Square("Yellow");
+		this.squares[5] = new Square("Red");
+		this.squares[6] = new Square("Blue");
+		this.squares[7] = new Square("Green");
+		this.squares[8] = new Square("Yellow");
+		this.squares[9] = new Square("Red");
+		this.squares[10] = new Square("Blue");
+		this.squares[11] = new Square("Green");
+		this.squares[12] = new Square("Yellow");
+		this.squares[13] = new Square("Red");
+		this.squares[14] = new Square("Blue");
+		this.squares[15] = new Square("Green");
+		this.theSpinner = new Spinner();
+		this.setCurrentSquare(0);
+	}
+	
+	public void setCurrentSquare(int newSquareNumber) {
+		//set the passed
+		newSquareNumber %= this.squares.length;
+		this.currentSquareNumber = newSquareNumber;
+	}
+	
+	public int getCurrentSquare() {
+		return this.currentSquareNumber;
+	}
+	
+	public void playGame() {
+		//
+		System.out.println("Iron is starting on Go square #0");
+		int numRolled;
+		int newPosition;
+		for(int spinNumber = 0; spinNumber < 10; spinNumber++) {
+			//Spin the spinner and increase the current square that number of positions
+			numRolled = this.theSpinner.spin();
+			this.setCurrentSquare(this.getCurrentSquare() + numRolled);
+			newPosition = this.getCurrentSquare();
+			//Outp
+			System.out.printf("Spun %d...Iron is now sitting on %s square #%d\n",numRolled,this.squares[this.getCurrentSquare()],newPosition);
+		}
+	}
+}

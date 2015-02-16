@@ -1,0 +1,52 @@
+package Dallopoly;
+
+import java.util.ArrayList;
+
+public class Dallopoly {
+	//Variables to hold data about a spinner, a board
+	private Spinner theSpinner;
+	private Board theBoard;
+	private ArrayList<Player> players;
+	
+	public Dallopoly() {
+		//Initialize the ArrayList
+		players = new ArrayList<Player>();
+		
+		//Initialize the Board
+		this.theBoard = new Board();
+		
+		//Initialize the Spinner
+		this.theSpinner = new Spinner();
+		
+		//Add both of the players to the ArrayList
+		players.add(new Player("Player 1", theBoard.getStartSquare()));
+		players.add(new Player("Player 2", theBoard.getStartSquare()));
+	}
+	
+	public void playGame() {
+		//set a flag that will change when the game ends
+		boolean gameOver = false;
+    
+    	//Create an outer loop that exits when a player wins
+    	while(gameOver == false) {
+    	//Loop through the ArrayList of players and
+    	//send each player the "takeTurn" message.
+    	//After the player has moved, compare the player’s new square
+    	//to the Board’s lastSquare. If the player is on the Board’s
+    	//last square, declare that player the winner and exit the
+    	//while loop.
+    		for(int player = 0; player < players.size(); player++) {
+    			//Have the current player take a turn
+    			players.get(player).takeTurn(this.theSpinner, this.theBoard);
+    			
+    			//Check if the player is on the last square
+    			if(players.get(player).getCurrentSquare().equals(theBoard.getLastSquare())) {
+    	    		gameOver = true;
+    	    		//Exit the for loop
+    	    		break;
+    	    	}
+    		}
+    	}//end while
+    	System.out.println("Game Over.");
+    }//end playGame
+}

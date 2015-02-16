@@ -1,0 +1,112 @@
+/*
+ Copyright (c) 2014, Daniel Eisterhold
+ All rights reserved.
+ 
+ Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+ 
+ 1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+ 
+ 2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+ 
+ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+//Include the Classes
+import Dallopoly.*;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class GameLauncher implements ActionListener {
+	
+	public static void main(String[] args) {
+		try {
+			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		} 
+		catch (UnsupportedLookAndFeelException e) {
+			// handle exception
+			System.out.println("That look and feel is unsupported.");
+    	}
+		catch (ClassNotFoundException e) {
+			// handle exception
+			System.out.println("That look and feel was not found.");
+    	}
+		catch (InstantiationException e) {
+			System.out.println("Error initializing that look and feel.");
+			// handle exception
+    	}
+		catch (IllegalAccessException e) {
+			System.out.println("Error accessing the look and feel.");
+			// handle exception
+    	}
+    
+		//Default window size
+		final Dimension minSize = new Dimension(600,400);
+		//Screen Resolution
+		final Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		
+		//Create new window
+		JFrame mainWindow = new JFrame();
+		
+		//Quit the application when the window is closed
+		mainWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		//Set the window label
+		mainWindow.setTitle("DallopolyWindow");
+		
+		//Set the minimum and maximum window sizes
+		mainWindow.setMinimumSize(minSize);
+		mainWindow.setMaximumSize(minSize);
+//		mainWindow.setMaximumSize(screenSize);
+		
+		//Create panels
+		JPanel topPanel = new JPanel();
+		JPanel centerPanel = new JPanel();
+		JPanel rightPanel = new JPanel();
+		
+		topPanel.setLayout(new GridLayout(1,4));
+		
+		//Create the UI Elements
+		JButton newGameButton = new JButton("New Game");
+		JButton addPlayerButton = new JButton("Add Player");
+		JButton playGameButton = new JButton("Play");
+		JLabel playerNameLabel = new JLabel("Player Name:");
+		JTextField playerNameField = new JTextField();
+		JScrollPane gameOutputArea = new JScrollPane();
+		
+		//Set size of UIElements
+		newGameButton.setSize(40, 20);
+		
+		//Add the UI Elements to the top panel
+		topPanel.add(newGameButton);
+		topPanel.add(playerNameLabel);
+		topPanel.add(playerNameField);
+		topPanel.add(addPlayerButton);
+		
+		//Add the UI Element to the rightPanel
+		rightPanel.add(playGameButton, BorderLayout.CENTER);
+		
+		//Add the UI Element to the centerPanel
+		
+		//Add the panels to the window
+		mainWindow.add(topPanel, BorderLayout.NORTH);
+		mainWindow.add(rightPanel, BorderLayout.EAST);
+		mainWindow.add(centerPanel, BorderLayout.SOUTH);
+		
+		//Make the window visible after it has been setup
+		mainWindow.setVisible(true);
+		
+		//Output that the game is starting
+		System.out.println("Starting the game...\n");
+		
+		//Create a game
+		Dallopoly game = new Dallopoly();
+		
+		//Play the game
+		game.playGame();
+	}
+	
+	public void actionPerformed(ActionEvent e) {
+		
+	}
+}

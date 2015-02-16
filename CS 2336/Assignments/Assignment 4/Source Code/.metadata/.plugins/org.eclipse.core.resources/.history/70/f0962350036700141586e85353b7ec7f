@@ -1,0 +1,44 @@
+package Dallopoly;
+
+public class Player {
+	//Variables to hold name of player and the spot that the player is at
+	private String name;
+	private Square currentSquare;
+	
+	//Constructor that accepts name and starting square
+	public Player(String _name, Square _square) {
+		//Initialize the variables
+		this.setName(_name);
+		this.setCurrentSquare(_square);
+	}
+	
+	//Returns player name
+	public String getName() {
+		return this.name;
+	}
+	
+	//Sets the players name
+	public void setName(String _name) {
+		this.name = _name;
+	}
+
+	//Returns square player is currently on
+	public Square getCurrentSquare() {
+		return this.currentSquare;
+	}
+	
+	//Sets the square the player is on
+	public void setCurrentSquare(Square _currentSquare) {
+		this.currentSquare = _currentSquare;
+	}
+	
+	public void takeTurn(Spinner theSpinner, Board gameBoard) {
+		int spotsToMove = theSpinner.spin();
+		setCurrentSquare(gameBoard.move(this.getCurrentSquare(), spotsToMove));
+	}
+	
+	public String toString() {
+		String data = this.getName() + " is at square " + this.getCurrentSquare().getLabel() + ".";
+		return data;
+	}
+}

@@ -1,0 +1,57 @@
+package Dallopoly;
+
+public class Dallopoly {
+	
+	private int currentSquareNumber;
+	private Square[] squares;
+	private Spinner theSpinner;
+	
+	public Dallopoly() {
+		this.squares = new Square[16];
+		this.squares[0] = new Square("White (GO)");
+		this.squares[1] = new Square("Red");
+		this.squares[2] = new Square("Blue");
+		this.squares[3] = new Square("Green");
+		this.squares[4] = new Square("Yellow");
+		this.squares[5] = new Square("Red");
+		this.squares[6] = new Square("Blue");
+		this.squares[7] = new Square("Green");
+		this.squares[8] = new Square("Yellow");
+		this.squares[9] = new Square("Red");
+		this.squares[10] = new Square("Blue");
+		this.squares[11] = new Square("Green");
+		this.squares[12] = new Square("Yellow");
+		this.squares[13] = new Square("Red");
+		this.squares[14] = new Square("Blue");
+		this.squares[15] = new Square("Green");
+		this.theSpinner = new Spinner();
+		this.setCurrentSquare(0);
+	}
+	
+	public void setCurrentSquare(int newSquareNumber) {
+		//Make sure that the new position is within the valid range
+		newSquareNumber %= this.squares.length;
+		
+		//Set new position
+		this.currentSquareNumber = newSquareNumber;
+	}
+	
+	public int getCurrentSquare() {
+		//Return position of the square
+		return this.currentSquareNumber;
+	}
+	
+	public void playGame() {
+    //set a flag that will change when the game ends
+    boolean gameOver = false;
+    
+    //Create an outer loop that exits when a player wins
+    while(gameOver == false) {
+    	//Loop through the ArrayList of players and
+    	//send each player the "takeTurn" message.
+    	//After the player has moved, compare the player’s new square //to the Board’s lastSquare. If the player is on the Board’s
+    	//last square, declare that player the winner and exit the //while loop.
+    	//INSERT MISSING CODE HERE
+    	}//end while
+    }//end playGame
+}

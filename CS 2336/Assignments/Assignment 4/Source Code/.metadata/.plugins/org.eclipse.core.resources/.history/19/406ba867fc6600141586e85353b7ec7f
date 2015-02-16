@@ -1,0 +1,32 @@
+package Dallopoly;
+
+public class Player {
+	private String name;
+	private Square currentSquare;
+	
+	public Player(String _name) {
+		this.setName(_name);
+		
+	}
+	
+	public String getName() {
+		return this.name;
+	}
+	
+	public void setName(String _name) {
+		this.name = _name;
+	}
+
+	public Square getCurrentSquare() {
+		return this.currentSquare;
+	}
+	
+	public void setCurrentSquare(Square _currentSquare) {
+		this.currentSquare = _currentSquare;
+	}
+	
+	public String toString() {
+		String data = this.getName() + " is at square " + this.getCurrentSquare().getLabel() + ".";
+		return data;
+	}
+}

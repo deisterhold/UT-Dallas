@@ -1,0 +1,36 @@
+TipCalculator Class
+
+	create var tipPercentages set to 17%,15%,12%,7%,0%
+	create var serviceGrades set to A,B,C,D,F
+	create var billAmount
+	create var serviceGrade
+
+	create default constructor
+		set billAmount to 0
+		set serviceGrade to ""
+
+	create behavior to getBill
+		create input
+		ask user for bill amount
+		read input
+		validate input
+		if not valid repeat
+
+	create behavior to getServiceGrad
+		create input
+		ask user for service grade
+		read input
+		validate input
+		if not valid repeat
+		calculate tip for service grade
+		output bill total and tip amount
+	
+	create behavior to displayTipAmounts
+		loop through service grades
+			calculate tip with current service grade
+			display tip of current service grade
+
+	create behavior to calculateTip
+		create var tipAmount
+		set tipAmount to billAmount * tipPercentages
+		return tipAmount

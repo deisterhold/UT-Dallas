@@ -1,0 +1,36 @@
+SpinnerGame Class
+
+	create var randNUm
+
+	create var playerOneName
+	create var playerTwoName
+
+	create var playerOneScore
+	create var playerTwoScore
+
+	create constructor
+		set playerOneName to Player 1
+		set playerTwoName to Player 2
+		set scores to 0
+
+	create constructor
+		set playerOneName to name1
+		set playerTwoName to name2
+		set scores to 0
+
+	create behavior playerOneSpin
+		create var num set to spinWheel
+		add num to playerOneScore
+		output what happened
+
+	create behavior playerTwoSpin
+		create var num set to spinWheel
+		add num to playerTwoScore
+		output what happened
+
+	create behavior isOver
+		check if the score has been reached
+
+	create behavior spinWheel
+		create var random to generate random numbers
+		return random number in wheelValues

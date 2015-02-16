@@ -1,0 +1,41 @@
+package Monopoly;
+
+public class SimpleMonopoly {
+	
+	private int currentSquareNumber;
+	private Square[] squares;
+	private Spinner theSpinner;
+	
+	public SimpleMonopoly() {
+		this.squares = new Square[16];
+		this.squares[0] = new Square("White");
+		this.squares[0] = new Square("Red");
+		this.squares[0] = new Square("Blue");
+		this.squares[0] = new Square("Green");
+		this.squares[0] = new Square("Yellow");
+		this.squares[0] = new Square("Red");
+		this.squares[0] = new Square("Blue");
+		this.squares[0] = new Square("Green");
+		this.squares[0] = new Square("Yellow");
+		this.squares[0] = new Square("Red");
+		this.squares[0] = new Square("Blue");
+		this.squares[0] = new Square("Green");
+		this.squares[0] = new Square("Yellow");
+		this.squares[0] = new Square("Red");
+		this.squares[0] = new Square("Blue");
+		this.squares[0] = new Square("Green");
+		this.theSpinner = new Spinner();
+	}
+	
+	public void setCurrentSquare(Square newSquare) {
+		this.squares[this.currentSquareNumber] = newSquare;
+	}
+	
+	public int getCurrentSquare() {
+		return this.currentSquareNumber;
+	}
+	
+	public void playGame() {
+		System.out.println("Playing Game...");
+	}
+}

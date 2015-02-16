@@ -1,0 +1,8 @@
+GameLauncher Class
+
+include the package containing the Dallopoly game
+
+	create main method
+		create a DallopolyWindow object
+		set the DallopolyWindow's size to 600x400
+		set the DallopolyWindow to be visible

@@ -1,0 +1,25 @@
+Player Class
+
+	create variable name to hold the players name
+	create variable currentSquare to hold the players spot
+
+	create constructor that takes a name and current square
+		set the name of the player to the passed in value
+		set the square to the passed in value
+
+	create behavior getName that returns the players name
+
+	create behavior setName that sets the players name
+
+	create behavior getCurrentSquare that returns the players square
+
+	create behavior setCurrentSquare that sets the players square
+
+	create behavior takeTurn that takes in the gameBoard and theSpinner
+		create variable that holds the spinner value
+		spin theSpinner and store the value
+		use the gameBoard to find the new square that the player is at after spinning
+		set the players square to the new spot
+		output what the player spun and their current spot
+
+	create behavior toString that returns the name of the player and current square

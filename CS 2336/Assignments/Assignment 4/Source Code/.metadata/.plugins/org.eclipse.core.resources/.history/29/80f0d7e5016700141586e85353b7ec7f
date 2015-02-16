@@ -1,0 +1,66 @@
+package Dallopoly;
+
+import java.util.ArrayList;
+
+public class Board {
+	private ArrayList<Square> squares;
+	
+	public Board() {
+		//Initialize each of the squares with its name
+		squares.add(new Square("Reunion Tower"));
+		squares.add(new Square("Dealey Plaza"));
+		squares.add(new Square("Design District"));
+		squares.add(new Square("Victory Park"));
+		squares.add(new Square("West End"));
+		squares.add(new Square("Perot Museum"));
+		squares.add(new Square("Downtown"));
+		squares.add(new Square("Klyde Warren Park"));
+		squares.add(new Square("Arts District"));
+		squares.add(new Square("Deep Ellum"));
+		squares.add(new Square("Fair Park"));
+		squares.add(new Square("West Village"));
+		squares.add(new Square("Katy Trail"));
+		squares.add(new Square("North Park Mall"));
+		squares.add(new Square("White Rock Lake"));
+		squares.add(new Square("Bush Library"));
+		squares.add(new Square("SMU"));
+	}
+	
+	//Returns the first element in the ArrayList
+	public Square getStartSquare() {
+		return squares.get(0);
+	}
+	
+	//Returns the last element in the ArrayList
+	public Square getLastSquare() {
+		return squares.get(squares.size()-1);
+	}
+	
+	//Takes the current position and the number of spots to move
+	public Square move(Square oldSquare, int squaresToMove) {
+		//Handle an errors that may arise
+		try {
+			//Loop through the ArrayList
+			for(int item = 0; item < squares.size(); item++) {
+				//Check to see what spot the old square was at
+				if(squares.get(item).equals(oldSquare)) {
+					//Return the square
+					return squares.get(item + squaresToMove);
+				}
+			}
+			//If the square didn't exist throw an Exception
+			throw new Exception("Item does not exist in ArrayList.");
+		}
+		//If new square didn't exist because you can't move that many spots
+		catch(IndexOutOfBoundsException e) {
+			//Return the old spot
+			System.out.println("Out of Bounds on ArrayList.");
+			return oldSquare;
+		}
+		//Handle all other errors
+		catch(Exception e) {
+			System.out.println("Got Error: " + e.getMessage());
+		}
+		return new Square("");
+	}
+}

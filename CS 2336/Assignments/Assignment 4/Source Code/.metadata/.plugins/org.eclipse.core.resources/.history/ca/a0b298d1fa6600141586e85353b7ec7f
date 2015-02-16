@@ -1,0 +1,11 @@
+//Include the Classes
+import Dallopoly.*;
+// or
+//import Monopoly.*;
+
+public class GameLauncher {
+	public static void main(String[] args) {
+		Dallopoly game = new Dallopoly();
+		game.playGame();
+	}
+}

@@ -1,0 +1,17 @@
+Square,Reunion Tower
+Square,Dealey Plaza
+Square,Design District
+PrizeSquare,Victory Park
+Square,West End
+PenaltySquare,Perot Science Museum
+Square,Downtown
+PrizeSquare,Klyde Warren Park
+Square,Arts District
+PenaltySquare,Deep Ellum
+PrizeSquare,Fair Park
+Square,West Village
+PrizeSquare,Katy Trail
+PenaltySquare,North Park Mall
+PrizeSquare,White Rock Lake
+Square,Bush Library
+LastSquare,SMU

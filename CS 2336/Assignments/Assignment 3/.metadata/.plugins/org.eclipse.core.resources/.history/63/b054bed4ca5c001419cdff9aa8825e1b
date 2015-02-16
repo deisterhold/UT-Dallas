@@ -1,0 +1,9 @@
+//Include the Classes
+import Monopoly.SimpleMonopoly;
+
+public class GameTester {
+	public static void main(String[] args) {
+		SimpleMonopoly sm = new SimpleMonopoly();
+		sm.playGame();
+	}//end main
+}//end class GameTester

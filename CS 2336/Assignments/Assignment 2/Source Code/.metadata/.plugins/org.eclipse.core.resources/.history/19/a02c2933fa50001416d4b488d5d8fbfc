@@ -1,0 +1,117 @@
+/*
+ Copyright (c) 2014, Daniel Eisterhold
+ All rights reserved.
+ 
+ Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+ 
+ 1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+ 
+ 2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+ 
+ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+import java.util.*;
+
+class TipCalculator {
+    
+	//Declare constants such as the tips and service grades
+	final double[] tipPercents = new double[]{0.17,0.15,0.12,0.07,0.0};
+    final String[] serviceGrades = new String[]{"A","B","C","D","F",};
+    
+    //Declare variables
+    double billAmount;
+    double taxPercentage; //Added this for later use
+
+    //Initialize variables
+    public TipCalculator() {
+        billAmount = 0.0;
+        taxPercentage = 0.0825; //Set to local tax rate if being used
+    }
+    
+    //Get input from user about bill
+    public void getBillAmount() {
+    	Scanner input = new Scanner(System.in); //Create input object
+        while(billAmount <= 0.0) { //Repeat until they enter a valid bill amount
+        	//Exception handling for Scanner class
+        	try {
+        		//Ask user for input
+        		System.out.print("What is the amount of the bill? ");
+                billAmount = input.nextDouble(); //Read input
+        	}
+        	catch(Exception e) { //Catch if invalid input
+        		//Notify of invalid input
+        		System.out.println("Invalid Input. Try again.");
+        		input.nextLine(); //Read in and discard the rest of invalid input
+        	}
+        }
+     }
+    
+    //Get input from user about service
+    public void getServiceGrade() {
+    	Scanner input = new Scanner(System.in); //Create input object
+        String serviceGrade = ""; //Create variable to hold service grade
+        while(true) { //Loop forever
+        	//Exception handling for Scanner Class
+        	try {
+        		//Ask for user input
+        		System.out.print("Grade the service A, B, C, D, or F : ");
+        		serviceGrade = input.nextLine(); //Read input
+        	}
+        	catch(Exception e) { //Catch if invalid input
+        		//Notify of invalid input
+        		System.out.println("Invalid Input. Try again.");
+        	}
+            if(!serviceGrade.isEmpty()) {
+            	serviceGrade = serviceGrade.toUpperCase();
+            	System.out.println("Read: \"" + serviceGrade + "\"");
+            	for(int counter = 0; counter < 5; counter++) {
+                    if(serviceGrade.equals(serviceGrades[counter])) {
+                    	double totalWithTip = billAmount + calculateTip(tipPercents[counter], false);
+                    	System.out.format("%nPay $%.2f (Tip: $%2.2f)%n",totalWithTip,calculateTip(tipPercents[counter], false));
+                        return;
+                    }
+                }
+            }
+        }
+    }
+    
+    //List the different tips
+    public void displayTipAmounts() {
+    	//Output heading
+    	System.out.format("%n\t%5s\t%10s%n","Grade","Tip");
+        for(int grade = 0; grade < 5; grade++) { //Loop through all tip grades
+        	//Formats and outputs data
+        	System.out.format("\t%5s",serviceGrades[grade]); //Output Tip Grade
+        	System.out.format("\t%10.2f%n", calculateTip(tipPercents[grade], false)); //Output tip percent of that grade
+        }
+    }
+    
+    //Calculate the tip
+    private double calculateTip(double tipPercent, boolean withTax) {
+    	
+    	if(withTax) { //If the bill amount includes tax
+    		//Calculate total before tax
+    		double subtotal = (billAmount/(1.0 + taxPercentage));
+    		return subtotal * tipPercent; //Return tip of subtotal
+    	}
+    	else {
+    		return billAmount * tipPercent; //Return the tip amount
+    	}
+    }
+
+    public static void main(String [] args) {
+    	//Create TipCalculator object
+        TipCalculator tipCalc = new TipCalculator();
+        
+        //Get bill total from user
+        tipCalc.getBillAmount();
+        
+        //Output tip amounts for the bill
+        tipCalc.displayTipAmounts();
+        
+        //Get service grade from user and computer total
+        tipCalc.getServiceGrade();
+    }
+
+}

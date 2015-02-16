@@ -1,0 +1,26 @@
+WorldPopulation Class
+
+create class
+	
+	create var currentPop
+	create var currentYear
+	create var growthRate
+
+	create constructor
+		set currentPop to 7,200,000,000
+		set currentYear to 2014
+		set growthRate to 1.5%
+	
+	create behavior
+		print out “Year”
+		print tabs
+		print out “Population”
+		print out currentYear
+		print tabs
+		print out currentPop
+		loop until currentYear is equal to 2034
+			increase currentYear by one
+			set currentPop to currentPop * (1.0 plus growthRate)
+			print out currentYear
+			print tab
+			print out currentPop

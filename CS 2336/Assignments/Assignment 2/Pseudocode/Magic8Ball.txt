@@ -1,0 +1,22 @@
+Magic8Ball Class
+
+	create constant array called sayings that contains the strings to display
+
+	create constructor
+		do nothing
+
+	create behavior to ask question
+		get user input
+		if the input is not blank
+			return input
+		else stop the program from running
+
+	create behavior to answer question
+		create var randNum
+		create a random number between 0 and 19 using randNum
+		output the message with the random number above
+
+Main Method
+	create Magic8Ball Object
+	loop until there is not a question
+		call answer question
