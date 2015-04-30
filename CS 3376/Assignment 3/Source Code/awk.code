@@ -1,0 +1,5 @@
+#Daniel Eisterhold
+#dte130030@utdallas.edu
+#CS 3376.502
+{ sum1 += $1 }; END { print sum1 };
+{ sum2 += $4 }; END { print sum2 };
